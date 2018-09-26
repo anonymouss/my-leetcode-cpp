@@ -7,6 +7,8 @@
 #include <string>
 #include <iomanip>
 
+#define DEBUG
+
 using MY_NS = std::nano;
 using MY_US = std::micro;
 using MY_MS = std::milli;
@@ -34,7 +36,7 @@ public:
 
 private:
     std::string toStr() const {
-        if (std::is_same<T,MY_NS>::value) return " ns";
+        if (std::is_same<T, MY_NS>::value) return " ns";
         else if (std::is_same<T, MY_US>::value) return " us";
         else if (std::is_same<T, MY_MS>::value) return " ms";
         else if (std::is_same<T, MY_SEC>::value) return " s";

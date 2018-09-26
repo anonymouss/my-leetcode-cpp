@@ -3,10 +3,7 @@
 ----
 my leetcode solutions in C++
 
-Required:
-CMake ( > 3.12), C++11 (gcc > 4.8)
-
-Usage:
+Better CMake ( >= 3.12), C++14 (gcc >= 5.0, Clang >= 3.4, MSVC >= 19.0/VS2015)
 
 - run `./clean.sh` before generating or updating makefile from CMake, because last CMake cache may block updating of some changes.
 - run `cmake .` to generate or update makefile using CMake.
