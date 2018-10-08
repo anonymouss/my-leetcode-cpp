@@ -1,5 +1,6 @@
 /**
- * Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+ * Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same
+ * backward as forward.
  *
  * Example 1:
  * Input: 121
@@ -8,7 +9,8 @@
  * Example 2:
  * Input: -121
  * Output: false
- * Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+ * Explanation: From left to right, it reads -121. From right to left, it becomes 121-.
+ * Therefore it is not a palindrome.
  *
  * Example 3:
  * Input: 10
@@ -19,13 +21,31 @@
  * Coud you solve it without converting the integer to a string?
  */
 
+#include <iostream>
+
 class Solution {
 public:
     bool isPalindrome(int x) {
-        
+        if (x < 0) return false;
+        if (x == 0) return true;
+        int rev = 0, xx = x;
+        while (xx != 0 && rev <= x / 10) {
+            rev = rev * 10 + xx % 10;
+            if (rev == x) return true;
+            xx /= 10;
+        }
+        return false;
     }
 };
 
 int main() {
     Solution s;
+
+    int i1 = 121;
+    int i2 = -121;
+    int i3 = 10;
+
+    std::cout << "Case 1: " << s.isPalindrome(i1) << std::endl;
+    std::cout << "Case 2: " << s.isPalindrome(i2) << std::endl;
+    std::cout << "Case 3: " << s.isPalindrome(i3) << std::endl;
 }
