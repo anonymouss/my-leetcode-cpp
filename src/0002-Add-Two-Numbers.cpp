@@ -12,14 +12,9 @@
  * Explanation: 342 + 465 = 807.
  */
 
-#include <iostream>
+#include "../utils/MyListUtil.h"
 
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
- };
+#include <iostream>
 
 class Solution {
 public:
@@ -56,25 +51,14 @@ int main() {
     int a1[3] = {2, 4, 3};
     int a2[3] = {5, 6, 4};
 
-    auto generateList = [](ListNode *list, int* arr, int n) {
-        for(auto i = 0; i < n; ++i) {
-            ListNode *node = new ListNode(arr[i]);
-            list->next = node;
-            list = node;
-        }
-    };
-
-    generateList(l1, a1, 3);
-    generateList(l2, a2, 3);
+    myGenerateList(l1, a1, 3);
+    myGenerateList(l2, a2, 3);
 
     auto* listRes = solution.addTwoNumbers(l1->next, l2->next);
 
     auto* p = listRes;
-    while (p != nullptr) {
-        std::cout << p->val << " -> ";
-        p = p->next;
-    }
-    std::cout << std::endl;
+
+    myDispList(p);
 
     // process terminate, heap will be reclaimed.
 }

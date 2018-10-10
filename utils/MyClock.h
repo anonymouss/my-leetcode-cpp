@@ -19,6 +19,17 @@ inline MY_TP MyGetTimestampNow() {
     return std::chrono::system_clock::now();
 }
 
+/**
+ * @brief To calculate function executation time
+ *
+ * put `MyClock<DESIRED_UNIT>` at a function begining, executation time will be printed in
+ * DESIRED_UNIT after function executated.
+ * MY_NS means in nanosecond
+ * MY_US means in microsecond
+ * MY_MS means in millisecond
+ * MY_SEC means in second
+ */
+
 template<typename T>
 class MyClock {
 public:

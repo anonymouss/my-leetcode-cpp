@@ -10,13 +10,9 @@
  * Follow up: Could you do this in one pass?
  */
 
-#include <iostream>
+#include "../utils/MyListUtil.h"
 
- struct ListNode {
-     int val;
-     ListNode *next;
-     ListNode(int x) : val(x), next(nullptr) {}
- };
+#include <iostream>
 
 class Solution {
 public:
@@ -31,36 +27,23 @@ public:
         auto *tp = p1->next;
         p1->next = tp == nullptr ? nullptr : tp->next;
         delete tp;
-        return preHead->next;
+        auto *ret = preHead->next;
+        delete preHead;
+        return ret;
     }
 };
 
 int main() {
     Solution s;
 
-    auto generateList = [](ListNode *list, int* arr, int n) {
-        for(auto i = 0; i < n; ++i) {
-            ListNode *node = new ListNode(arr[i]);
-            list->next = node;
-            list = node;
-        }
-    };
-
-    auto dispList = [](ListNode *p) {
-        while (p != nullptr) {
-            std::cout << p->val << " -> ";
-            p = p->next;
-        }
-        std::cout << std::endl;
-    };
-
     int a1[5] = {1, 2, 3, 4, 5}, n1 = 2;
-    ListNode *l1 = new ListNode(0); generateList(l1, a1, 5);
+    ListNode *l1 = new ListNode(0); myGenerateList(l1, a1, 5);
 
     int a2[1] = {1}, n2 = 1;
-    ListNode *l2 = new ListNode(0); generateList(l2, a2, 1);
-    std::cout << "Case 1: "; dispList(s.removeNthFromEnd(l1->next, n1));
-    std::cout << "Case 2: "; dispList(s.removeNthFromEnd(l2->next, n2));
+    ListNode *l2 = new ListNode(0); myGenerateList(l2, a2, 1);
+
+    std::cout << "Case 1: "; myDispList(s.removeNthFromEnd(l1->next, n1));
+    std::cout << "Case 2: "; myDispList(s.removeNthFromEnd(l2->next, n2));
 
     // lists will be automatically released after process terminating
 }
