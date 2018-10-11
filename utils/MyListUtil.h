@@ -10,7 +10,7 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
  };
 
-// my util function
+// my util functions
 /**
  * @brief Generate a link list from a given array
  *
