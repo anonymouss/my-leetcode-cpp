@@ -1,5 +1,6 @@
 /**
- * Merge two sorted linked lists and return it as a new list. The new list should be made by
+ * Merge two sorted linked lists and return it as a new list. The new list
+ * should be made by
  * splicing together the nodes of the first two lists.
  *
  * Example:
@@ -16,7 +17,8 @@ public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         if (l1 == nullptr) return l2;
         if (l2 == nullptr) return l1;
-        ListNode *p1 = nullptr, *p2 = nullptr, *pRetHead = nullptr, *pPre = nullptr;
+        ListNode *p1 = nullptr, *p2 = nullptr, *pRetHead = nullptr,
+                 *pPre = nullptr;
         l1->val < l2->val ? (p1 = l1, p2 = l2) : (p1 = l2, p2 = l1);
         pRetHead = p1;
         while (p1 != nullptr && p2 != nullptr) {
@@ -45,6 +47,8 @@ int main() {
 
     ListNode *llist2 = nullptr, *rlist2 = nullptr;
 
-    std::cout << "Case 1: "; myDispList(s.mergeTwoLists(llist1->next, rlist1->next));
-    std::cout << "Case 2: "; myDispList(s.mergeTwoLists(llist2, rlist2));
+    std::cout << "Case 1: ";
+    myDispList(s.mergeTwoLists(llist1->next, rlist1->next));
+    std::cout << "Case 2: ";
+    myDispList(s.mergeTwoLists(llist2, rlist2));
 }

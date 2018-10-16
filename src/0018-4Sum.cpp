@@ -1,6 +1,7 @@
 /**
- * Given an array nums of n integers and an integer target, are there elements a, b, c,
- * and d in nums such that a + b + c + d = target? Find all unique quadruplets in the
+ * Given an array nums of n integers and an integer target, are there elements
+ * a, b, c, and d in nums such that a + b + c + d = target? Find all unique
+ * quadruplets in the
  * array which gives the sum of target.
  *
  * Note: The solution set must not contain duplicate quadruplets.
@@ -34,8 +35,10 @@ public:
                 if (j > i + 1 && nums[j] == nums[j - 1]) continue;
                 int l = j + 1, r = size - 1;
                 int a = nums[i], b = nums[j];
-                auto skipLeft = [&]() { while (l < size && nums[l] == nums[l + 1]) ++l; };
-                auto skipRight = [&]() { while (r > i && nums[r] == nums[r - 1]) --r; };
+                auto skipLeft =
+                    [&]() { while (l < size && nums[l] == nums[l + 1]) ++l; };
+                auto skipRight =
+                    [&]() { while (r > i && nums[r] == nums[r - 1]) --r; };
                 while (l < r) {
                     int c = nums[l], d = nums[r];
                     auto sum = a + b + c + d;

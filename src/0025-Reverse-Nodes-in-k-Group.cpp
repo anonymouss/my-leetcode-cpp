@@ -1,7 +1,8 @@
 /**
- * Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
- * k is a positive integer and is less than or equal to the length of the linked list. If the number
- * of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
+ * Given a linked list, reverse the nodes of a linked list k at a time and
+ * return its modified list. k is a positive integer and is less than or equal
+ * to the length of the linked list. If the number of nodes is not a multiple of
+ * k then left-out nodes in the end should remain as it is.
  *
  * Example:
  * Given this linked list: 1->2->3->4->5
@@ -10,7 +11,8 @@
  *
  * Note:
  * Only constant extra memory is allowed.
- * You may not alter the values in the list's nodes, only nodes itself may be changed.
+ * You may not alter the values in the list's nodes, only nodes itself may be
+ * changed.
  */
 
 #include "../utils/MyListUtil.h"
@@ -32,7 +34,8 @@ public:
         ListNode *pHead = new ListNode(0); // real head.
         pHead->next = head;
         ListNode *pLeft = pHead, *pRight = nullptr;
-        ListNode *pPre = nullptr, *pCurrent = nullptr, *pNext = nullptr, *pEnd = nullptr;
+        ListNode *pPre = nullptr, *pCurrent = nullptr, *pNext = nullptr,
+                 *pEnd = nullptr;
         while (pLeft->next != nullptr) {
             pRight = pLeft;
             for (int i = 1; i < k; ++i) {
@@ -41,7 +44,8 @@ public:
                 if (pRight->next == nullptr) RETURN(pHead)
             }
             if (pRight == pLeft) RETURN(pHead)
-            pPre = pLeft, pCurrent = pPre->next, pNext = pCurrent->next, pEnd = pCurrent;
+            pPre = pLeft, pCurrent = pPre->next, pNext = pCurrent->next,
+            pEnd = pCurrent;
             // std::cout << "Denbug before reverse: "; myDispList(pHead);
             for (int i = 1; i <= k; ++i) {
                 if (i == 1) {

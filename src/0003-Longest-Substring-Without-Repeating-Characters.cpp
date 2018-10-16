@@ -1,5 +1,6 @@
 /**
- * Given a string, find the length of the longest substring without repeating characters.
+ * Given a string, find the length of the longest substring without repeating
+ * characters.
  *
  * Example 1:
  *
@@ -18,7 +19,8 @@
  * Input: "pwwkew"
  * Output: 3
  * Explanation: The answer is "wke", with the length of 3.
- * Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+ * Note that the answer must be a substring, "pwke" is a subsequence and not a
+ * substring.
  */
 
 #include <iostream>
@@ -38,7 +40,8 @@ public:
         auto length = s.length();
         for (auto i = 0; i < length; ++i) {
             auto ch = s[i];
-            lastRepeatPos = position[ch] > lastRepeatPos ? position[ch] : lastRepeatPos;
+            lastRepeatPos = position[ch] > lastRepeatPos ? position[ch]
+                                                        : lastRepeatPos;
             longest = i - lastRepeatPos > longest ? i - lastRepeatPos : longest;
             position[ch] = i;
         }

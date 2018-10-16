@@ -22,8 +22,8 @@ inline MY_TP MyGetTimestampNow() {
 /**
  * @brief To calculate function executation time
  *
- * put `MyClock<DESIRED_UNIT> myClock;` at a function begining, executation time will be printed
- * in DESIRED_UNIT after function executated.
+ * put `MyClock<DESIRED_UNIT> myClock;` at a function begining, executation time
+ * will be printed in DESIRED_UNIT after function executated.
  * MY_NS means in nanosecond
  * MY_US means in microsecond
  * MY_MS means in millisecond
@@ -42,11 +42,12 @@ public:
         mEndPoint = MyGetTimestampNow();
         //auto mDuration = std::chrono::duration_cast<T>(mEndPoint - mStartPoint);
         std::chrono::duration<double, T> duration = mEndPoint - mStartPoint;
-        std::cout << "Exiting function... " << duration.count() << toStr() << " elapsed." << std::endl;
+        std::cout << "Exiting function... " << duration.count() << getUnitStr()
+                  << " elapsed." << std::endl;
     }
 
 private:
-    std::string toStr() const {
+    std::string getUnitStr() const {
         if (std::is_same<T, MY_NS>::value) return " ns";
         else if (std::is_same<T, MY_US>::value) return " us";
         else if (std::is_same<T, MY_MS>::value) return " ms";

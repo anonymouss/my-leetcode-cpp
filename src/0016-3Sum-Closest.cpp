@@ -1,7 +1,7 @@
 /**
- * Given an array nums of n integers and an integer target, find three integers in nums
- * such that the sum is closest to target. Return the sum of the three integers. You may
- * assume that each input would have exactly one solution.
+ * Given an array nums of n integers and an integer target, find three integers
+ * in nums such that the sum is closest to target. Return the sum of the three
+ * integers. You may assume that each input would have exactly one solution.
  *
  * Example:
  * Given array nums = [-1, 2, 1, -4], and target = 1.
@@ -25,8 +25,10 @@ public:
         for (int i = 0; i < size - 2; ++i) {
             if (i > 0 && nums[i] == nums[i - 1]) continue;
             int a = nums[i], l = i + 1, r = size - 1;
-            auto skipLeft = [&]() { while (l < size && nums[l] == nums[l + 1]) ++l; };
-            auto skipRight = [&]() { while (r > i && nums[r] == nums[r - 1]) --r; };
+            auto skipLeft =
+                [&]() { while (l < size && nums[l] == nums[l + 1]) ++l; };
+            auto skipRight =
+                [&]() { while (r > i && nums[r] == nums[r - 1]) --r; };
             while (l < r) {
                 int b = nums[l], c = nums[r];
                 int sum = a + b + c;

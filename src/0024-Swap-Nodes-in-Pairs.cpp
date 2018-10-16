@@ -6,7 +6,8 @@
  *
  * Note:
  * Your algorithm should use only constant extra space.
- * You may not modify the values in the list's nodes, only nodes itself may be changed.
+ * You may not modify the values in the list's nodes, only nodes itself may be
+ * changed.
  */
 
 #include "../utils/MyListUtil.h"

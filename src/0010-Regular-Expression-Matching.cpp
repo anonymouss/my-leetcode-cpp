@@ -1,5 +1,6 @@
 /**
- * Given an input string (s) and a pattern (p), implement regular expression matching with support for
+ * Given an input string (s) and a pattern (p), implement regular expression
+ * matching with support for
  * '.' and '*'.
  * - '.' Matches any single character.
  * - '*' Matches zero or more of the preceding element.
@@ -7,7 +8,8 @@
  *
  * Note:
  * s could be empty and contains only lowercase letters a-z.
- * p could be empty and contains only lowercase letters a-z, and characters like . or *.
+ * p could be empty and contains only lowercase letters a-z, and characters like
+ * `.` or `*`.
  *
  * Example 1:
  * Input:
@@ -21,8 +23,8 @@
  * s = "aa"
  * p = "a*"
  * Output: true
- * Explanation: '*' means zero or more of the precedeng element, 'a'. Therefore, by repeating 'a' once,
- * it becomes "aa".
+ * Explanation: '*' means zero or more of the precedeng element, 'a'. Therefore,
+ * by repeating 'a' once, it becomes "aa".
  *
  * Example 3:
  * Input:
@@ -36,7 +38,8 @@
  * s = "aab"
  * p = "c*a*b"
  * Output: true
- * Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches "aab".
+ * Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore
+ * it matches "aab".
  *
  * Example 5:
  * Input:
@@ -66,11 +69,14 @@ public:
     bool isMatch(string s, string p) {
         if (p.empty()) return s.empty();
 
-        bool firstMatch = (!s.empty() && (p[0] == s[0] || p[0] == '.')); // first character
+        // first character
+        bool firstMatch = (!s.empty() && (p[0] == s[0] || p[0] == '.'));
 
         if (p.length() >= 2 && p[1] == '*') {
-            //     occurance 0             ||  occurance >= 1
-            return isMatch(s, p.substr(2)) || (firstMatch && isMatch(s.substr(1), p));
+            //     occurance 0
+            return isMatch(s, p.substr(2))
+            //      ||  occurance >= 1
+                    || (firstMatch && isMatch(s.substr(1), p));
         } else {
             return firstMatch && isMatch(s.substr(1), p.substr(1));
         }

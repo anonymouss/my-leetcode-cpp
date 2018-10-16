@@ -15,9 +15,10 @@
  * Note:
  * Both dividend and divisor will be 32-bit signed integers.
  * The divisor will never be 0.
- * Assume we are dealing with an environment which could only store integers within
- * the 32-bit signed integer range: [−2^31,  2^31 − 1]. For the purpose of this problem,
- * assume that your function returns 2^31 − 1 when the division result overflows.
+ * Assume we are dealing with an environment which could only store integers
+ * within the 32-bit signed integer range: [−2^31,  2^31 − 1]. For the purpose
+ * of this problem, assume that your function returns 2^31 − 1 when the division
+ * result overflows.
  */
 
 #include <iostream>
@@ -25,7 +26,8 @@
 class Solution {
 public:
     int divide(int dividend, int divisor) {
-        bool isSame = (dividend < 0 && divisor < 0) || (dividend >= 0 && divisor >= 0);
+        bool isSame = (dividend < 0 && divisor < 0)
+                        || (dividend >= 0 && divisor >= 0);
         int64_t newDividend = ABS(dividend), newDivisor = ABS(divisor);
 
         int64_t res = doDivide(newDividend, newDivisor);
