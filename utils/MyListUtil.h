@@ -2,6 +2,9 @@
 #define __UTILS_MY_LIST_UTIL__
 
 #include <iostream>
+#include <vector>
+
+using std::vector;
 
 // defined by leetcode
 struct ListNode {
@@ -29,6 +32,15 @@ inline void myGenerateList(ListNode *list, int* arr, int n) {
     }
 }
 
+// @override
+inline void myGenerateList(ListNode *list, vector<int> &vec) {
+    for (const auto &v : vec) {
+        ListNode *node = new ListNode(v);
+        list->next = node;
+        list = node;
+    }
+}
+
 /**
  * @brief Display all element values of a link list from the given start node
  *
@@ -42,7 +54,7 @@ inline void myDispList(ListNode *p) {
         std::cout << p->val << " -> ";
         p = p->next;
     }
-    std::cout << std::endl;
+    std::cout << "nullptr" << std::endl;
 };
 
 #endif // __UTILS_MY_LIST_UTIL__
