@@ -10,3 +10,8 @@ Better to use CMake ( >= 3.12), C++14 (gcc >= 5.0, Clang >= 3.4, MSVC >= 19.0/VS
 - run `make` to compile all source codes in `src/`, the executable binary files will be stored in `bin/`
 - `cd` to `bin/` and verify manually
 - run `make clean` to delete all binary files in `bin/`
+
+```
+Progress: 7.54% finished. [70 solved of total 928 problems]
+>>>>>>>>--------------------------------------------------------------------------------------------
+```

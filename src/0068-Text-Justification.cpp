@@ -74,7 +74,6 @@ public:
                 if (line.size() > 1) {
                     int averageSpaces = totalSpaces / (line.size() - 1);
                     int remainingSpaces = totalSpaces % (line.size() - 1);
-                    string spaces(averageSpaces, ' ');
                     for (int i = 0; i < line.size(); ++i) {
                         lineStr += line[i];
                         if (i != line.size() - 1) lineStr += string(averageSpaces, ' ');
