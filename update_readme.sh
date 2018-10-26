@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # set manually by default
-TOTAL=928
-COMPLETED=72
+TOTAL=875 # actual number of algorithm problems
+COMPLETED=75
 SCALE=100
 
 # receive completed num from shell
@@ -31,7 +31,7 @@ function delete() {
 
 function update() {
     echo "\`\`\`" >> README.md 
-    echo "Progress: $RATE% finished. [$COMPLETED solved of total $TOTAL problems]" >> README.md
+    echo "Progress: $RATE% finished. [$COMPLETED solved of total $TOTAL algorithm problems]" >> README.md
     echo "${STR_ARROWS// />}${STR_DASHES// /-}" >> README.md
     echo "\`\`\`" >> README.md 
 }
