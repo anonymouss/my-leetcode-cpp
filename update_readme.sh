@@ -1,27 +1,27 @@
 #!/bin/bash
 
+## Update the completed progress at the bottom of README.md ##
+
 # set manually by default
-TOTAL=875 # actual number of algorithm problems
-COMPLETED=75
+TOTAL=875 # actual number of algorithm problems, 875 @ 26th, Oct., 2018
 SCALE=100
 
-# receive completed num from shell
+# count files in ./src/
+COMPLETED=`ls src -l |grep "^-"|wc -l`
+
+# update total number from shell input. otherwise use defalt value
 if [ $# == 1 ]; then
-    COMPLETED=$1
-# receive completed & total num from shell
-elif [ $# == 2 ]; then
-    COMPLETED=$1
-    TOTAL=$2
+    TOTAL=$1
 fi
 
 ACCURATE_RATE=`echo "($COMPLETED * $SCALE) / $TOTAL" | bc -l`
 
 RATE=`printf "%.2f" $ACCURATE_RATE`
 ARROWS=$(printf "%d" `echo "$ACCURATE_RATE+0.5" | bc`)
-STARS=`echo "100-$ARROWS" | bc`
+DASHES=`echo "100-$ARROWS" | bc`
 
 STR_ARROWS=`printf "%-${ARROWS}s" ">"`
-STR_DASHES=`printf "%-${STARS}s" "-"`
+STR_DASHES=`printf "%-${DASHES}s" "-"`
 
 function delete() {
     sed -i '/```/d' README.md
@@ -39,4 +39,4 @@ function update() {
 delete
 update
 
-echo "progress updated to $RATE"
+echo "progress updated to $RATE ($COMPLETED/$TOTAL)"
