@@ -12,6 +12,6 @@ Better to use CMake ( >= 3.12), C++14 (gcc >= 5.0, Clang >= 3.4, MSVC >= 19.0/VS
 - run `make clean` to delete all binary files in `bin/`
 
 ```
-Progress: 7.76% finished. [72 solved of total 928 problems]
+Progress: 8.08% finished. [75 solved of total 928 problems]
 >>>>>>>>--------------------------------------------------------------------------------------------
 ```
