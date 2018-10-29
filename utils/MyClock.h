@@ -3,11 +3,14 @@
 
 #include <chrono>
 #include <ratio>
-#include <iostream>
+#include <cstdio>
 #include <string>
 #include <iomanip>
+#include <string>
 
 #define DEBUG
+
+using std::string;
 
 using MY_NS = std::nano;
 using MY_US = std::micro;
@@ -33,8 +36,9 @@ inline MY_TP MyGetTimestampNow() {
 template<typename T>
 class MyClock {
 public:
-    MyClock() {
-        std::cout << "Entering function..." << std::endl;
+    explicit MyClock(string name = "none") {
+        mName =  name;
+        printf("Entering function (%s)...\n", mName.c_str());
         mStartPoint = MyGetTimestampNow();
     }
 
@@ -42,21 +46,23 @@ public:
         mEndPoint = MyGetTimestampNow();
         //auto mDuration = std::chrono::duration_cast<T>(mEndPoint - mStartPoint);
         std::chrono::duration<double, T> duration = mEndPoint - mStartPoint;
-        std::cout << "Exiting function... " << duration.count() << getUnitStr()
-                  << " elapsed." << std::endl;
+        printf("Exiting function (%s)... %f %s elapsed\n", mName.c_str(), duration.count(),
+                getUnitStr().c_str());
     }
 
 private:
     std::string getUnitStr() const {
-        if (std::is_same<T, MY_NS>::value) return " ns";
-        else if (std::is_same<T, MY_US>::value) return " us";
-        else if (std::is_same<T, MY_MS>::value) return " ms";
-        else if (std::is_same<T, MY_SEC>::value) return " s";
-        else return " ?";
+        if (std::is_same<T, MY_NS>::value) return "ns";
+        else if (std::is_same<T, MY_US>::value) return "us";
+        else if (std::is_same<T, MY_MS>::value) return "ms";
+        else if (std::is_same<T, MY_SEC>::value) return "s";
+        else return "?";
     }
 
     MY_TP mStartPoint;
     MY_TP mEndPoint;
+
+    string mName;
 };
 
 #endif // __UTILS_MY_CLOCK__

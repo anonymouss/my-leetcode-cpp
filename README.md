@@ -13,6 +13,6 @@ Better to use CMake ( >= 3.12), C++14 (gcc >= 5.0, Clang >= 3.4, MSVC >= 19.0/VS
 
 
 ```
-Progress: 9.14% finished. [80 solved of total 875 algorithm problems]
->>>>>>>>>-------------------------------------------------------------------------------------------
+Progress: 9.71% finished. [85 solved of total 875 algorithm problems]
+>>>>>>>>>>------------------------------------------------------------------------------------------
 ```
