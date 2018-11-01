@@ -4,10 +4,12 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <stack>
 #include <string>
 
 using std::vector;
 using std::queue;
+using std::stack;
 using std::to_string;
 
 // defined by leetcode
@@ -58,6 +60,7 @@ TreeNode *myGenerateTreeFromLeetCodeInput(const vector<int> &nodes, const int nu
  * @param   root    binary tree root node
  */
 void myDispTreeByLevel(const TreeNode *root) {
+    std::cout << "<by level> ";
     queue<const TreeNode *> nodeQueue;
     nodeQueue.emplace(root);
     std::cout << "[";
@@ -68,6 +71,31 @@ void myDispTreeByLevel(const TreeNode *root) {
         if (pParent) {
             nodeQueue.emplace(pParent->left);
             nodeQueue.emplace(pParent->right);
+        }
+    }
+    std::cout << "]" << std::endl;
+}
+
+/**
+ * @brief display a binary tree in inorder
+ *
+ * @param   root    binary tree root node
+ */
+void myDispTreeInorder(const TreeNode *root) {
+    std::cout << "<inorder> ";
+    stack<const TreeNode *> nodeStack;
+    auto *node = root;
+    std::cout << "[";
+    while (node || !nodeStack.empty()) {
+        while (node) {
+            nodeStack.emplace(node);
+            node = node->left;
+        }
+        if (!nodeStack.empty()) {
+            auto *top = nodeStack.top();
+            std::cout << top->val << ", ";
+            nodeStack.pop();
+            node = top->right;
         }
     }
     std::cout << "]" << std::endl;
