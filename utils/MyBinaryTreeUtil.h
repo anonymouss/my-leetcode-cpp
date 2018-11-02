@@ -60,7 +60,7 @@ TreeNode *myGenerateTreeFromLeetCodeInput(const vector<int> &nodes, const int nu
  * @param   root    binary tree root node
  */
 void myDispTreeByLevel(const TreeNode *root) {
-    std::cout << "<by level> ";
+    std::cout << "<level> ";
     queue<const TreeNode *> nodeQueue;
     nodeQueue.emplace(root);
     std::cout << "[";

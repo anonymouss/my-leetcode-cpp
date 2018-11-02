@@ -95,6 +95,29 @@ public:
         return false;
     }
 };
+#elif (COMPILE_VERSION == 2)
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        queue<TreeNode *> nodesQueue;
+        nodesQueue.emplace(p);
+        nodesQueue.emplace(q);
+        while(!nodesQueue.empty()) {
+            auto *pNode = nodesQueue.front();
+            nodesQueue.pop();
+            auto *qNode = nodesQueue.front();
+            nodesQueue.pop();
+            if (!pNode && !qNode) continue;
+            if (!pNode || !qNode) return false;
+            if (pNode->val != qNode->val) return false;
+            nodesQueue.emplace(pNode->left);
+            nodesQueue.emplace(qNode->left);
+            nodesQueue.emplace(pNode->right);
+            nodesQueue.emplace(qNode->right);
+        }
+        return true;
+    }
+};
 #endif
 
 #define null -1
