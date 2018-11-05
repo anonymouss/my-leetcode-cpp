@@ -27,7 +27,7 @@ struct TreeNode {
  * @param   null    (optional) indicates to null node in input, -1 in default
  * @return          tree root
  */
-TreeNode *myGenerateTreeFromLeetCodeInput(const vector<int> &nodes, const int null = -1 /*default*/) {
+inline TreeNode *myGenerateTreeFromLeetCodeInput(const vector<int> &nodes, const int null = -1 /*default*/) {
     if (nodes.empty() || nodes[0] == null) return nullptr;
     auto *root = new TreeNode(nodes[0]);
     queue<TreeNode *> nodeQueue;
@@ -59,7 +59,7 @@ TreeNode *myGenerateTreeFromLeetCodeInput(const vector<int> &nodes, const int nu
  *
  * @param   root    binary tree root node
  */
-void myDispTreeByLevel(const TreeNode *root) {
+inline void myDispTreeByLevel(const TreeNode *root) {
     std::cout << "<level> ";
     queue<const TreeNode *> nodeQueue;
     nodeQueue.emplace(root);
@@ -81,7 +81,7 @@ void myDispTreeByLevel(const TreeNode *root) {
  *
  * @param   root    binary tree root node
  */
-void myDispTreeInorder(const TreeNode *root) {
+inline void myDispTreeInorder(const TreeNode *root) {
     std::cout << "<inorder> ";
     stack<const TreeNode *> nodeStack;
     auto *node = root;

@@ -41,6 +41,15 @@ inline void myGenerateList(ListNode *list, vector<int> &vec) {
     }
 }
 
+// generate link list directly, without an extra head
+inline ListNode *myGenerateListWithoutExtraHead(vector<int> &vec) {
+    auto *pHead = new ListNode(0);
+    myGenerateList(pHead, vec);
+    auto *pRet = pHead->next;
+    delete pHead; pHead = nullptr;
+    return pRet;
+}
+
 /**
  * @brief Display all element values of a link list from the given start node
  *

@@ -14,7 +14,7 @@ using std::vector;
  * object of type T must be printable
  */
 template<typename T>
-void myDispVector1D(const vector<T> &vec1D, int padding = 0) {
+inline void myDispVector1D(const vector<T> &vec1D, int padding = 0) {
     std::cout <<  string(padding, ' ') << "[";
     for (const auto &e : vec1D) {
         std::cout << e << ", ";
@@ -28,7 +28,7 @@ void myDispVector1D(const vector<T> &vec1D, int padding = 0) {
  * object of type T must be printable
  */
 template<typename T>
-void myDispVector2D(const vector<vector<T>> &vec2D, int padding = 2) {
+inline void myDispVector2D(const vector<vector<T>> &vec2D, int padding = 2) {
     auto paddingStr = string(padding, ' ');
     std::cout << paddingStr << "[\n";
     for (const auto &vec1D : vec2D) {

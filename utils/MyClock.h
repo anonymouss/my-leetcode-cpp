@@ -46,12 +46,11 @@ public:
         mEndPoint = MyGetTimestampNow();
         //auto mDuration = std::chrono::duration_cast<T>(mEndPoint - mStartPoint);
         std::chrono::duration<double, T> duration = mEndPoint - mStartPoint;
-        printf("Exiting function (%s)... %f %s elapsed\n", mName.c_str(), duration.count(),
-                getUnitStr().c_str());
+        printf("Exiting function (%s)... %f %s elapsed\n", mName.c_str(), duration.count(), getUnitStr());
     }
 
 private:
-    std::string getUnitStr() const {
+    const char* getUnitStr() const {
         if (std::is_same<T, MY_NS>::value) return "ns";
         else if (std::is_same<T, MY_US>::value) return "us";
         else if (std::is_same<T, MY_MS>::value) return "ms";
