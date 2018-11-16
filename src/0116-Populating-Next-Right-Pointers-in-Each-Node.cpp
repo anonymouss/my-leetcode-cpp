@@ -66,7 +66,7 @@ int main() {
 
     for (auto &nodes : nodesVec) {
         TestCount();
-        auto *root = myGenerateAnyTreeFromLeetCodeInput<TreeLinkNode>(nodes);
+        auto *root = myGenerateTreeFromLeetCodeInput<TreeLinkNode>(nodes);
         s.connect(root);
         // nothing to display
     }
