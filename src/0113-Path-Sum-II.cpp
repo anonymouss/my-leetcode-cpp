@@ -64,7 +64,7 @@ int main() {
     };
 
     for (auto &input : inputs) {
-        TestCount(true);
+        TestCount(IOFormat::BOOL);
         auto *root = myGenerateTreeFromLeetCodeInput(input.first);
         auto res = s.pathSum(root, input.second);
         myDispVector2D(res);

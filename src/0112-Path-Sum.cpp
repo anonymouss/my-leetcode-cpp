@@ -47,7 +47,7 @@ int main() {
     };
 
     for (auto &input : inputs) {
-        TestCount(true);
+        TestCount(IOFormat::BOOL);
         auto *root = myGenerateTreeFromLeetCodeInput(input.first);
         auto res = s.hasPathSum(root, input.second);
         std::cout << res << std::endl;

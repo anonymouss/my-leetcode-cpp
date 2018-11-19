@@ -82,7 +82,7 @@ int main() {
     };
 
     for (auto &nodes : nodesVec) {
-        TestCount(true);
+        TestCount(IOFormat::BOOL);
         auto *root = myGenerateTreeFromLeetCodeInput(nodes);
         auto balanced = s.isBalanced(root);
         std::cout << balanced << std::endl;

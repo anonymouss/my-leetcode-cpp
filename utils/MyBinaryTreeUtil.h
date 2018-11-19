@@ -38,6 +38,9 @@ struct TreeLinkNode {
 /*                                         Utils                                                   /
 /**************************************************************************************************/
 
+#define TYPE_GUARD typename enable_if<is_same<T, TreeNode>::value ||        \
+                        is_same<T, TreeLinkNode>::value>::type* = nullptr
+
 /**
  * @brief Generate a binary tree form leetcode format input
  *
@@ -47,8 +50,7 @@ struct TreeLinkNode {
  */
 template <typename T = TreeNode /* use binary tree by default */>
 inline T *myGenerateTreeFromLeetCodeInput(const vector<int> &nodes, const int null = -1 /*default*/,
-        typename enable_if<is_same<T, TreeNode>::value ||
-                is_same<T, TreeLinkNode>::value>::type* = nullptr) {
+        TYPE_GUARD) {
     if (nodes.empty() || nodes[0] == null) return nullptr;
     auto *root = new T(nodes[0]);
     queue<T *> nodeQueue;
@@ -81,9 +83,7 @@ inline T *myGenerateTreeFromLeetCodeInput(const vector<int> &nodes, const int nu
  * @param   root    binary tree root node
  */
 template <typename T = TreeNode>
-inline void myDispTreeByLevel(const T *root,
-        typename enable_if<is_same<T, TreeNode>::value ||
-                is_same<T, TreeLinkNode>::value>::type* = nullptr) {
+inline void myDispTreeByLevel(const T *root, TYPE_GUARD) {
     std::cout << "<level> ";
     queue<const T *> nodeQueue;
     nodeQueue.emplace(root);
@@ -106,9 +106,7 @@ inline void myDispTreeByLevel(const T *root,
  * @param   root    binary tree root node
  */
 template <typename T = TreeNode>
-inline void myDispTreeInorder(const T *root,
-        typename enable_if<is_same<T, TreeNode>::value ||
-                is_same<T, TreeLinkNode>::value>::type* = nullptr) {
+inline void myDispTreeInorder(const T *root, TYPE_GUARD) {
     std::cout << "<inorder> ";
     stack<const T *> nodeStack;
     auto *node = root;

@@ -73,7 +73,7 @@ int main() {
     };
 
     for (auto &input : inputs) {
-        TestCount(true);
+        TestCount(IOFormat::BOOL);
         std::cout << s.isPalindrome(input) << std::endl;
     }
 }
