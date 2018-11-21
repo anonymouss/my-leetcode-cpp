@@ -3,8 +3,10 @@
 
 #include <iostream>
 #include <vector>
+#include <utility>
 
 using std::vector;
+using std::pair;
 
 // defined by leetcode
 struct ListNode {
@@ -12,6 +14,12 @@ struct ListNode {
     ListNode *next;
     ListNode(int x) : val(x), next(nullptr) {}
  };
+
+ struct RandomListNode {
+    int label;
+    RandomListNode *next, *random;
+    RandomListNode(int x) : label(x), next(nullptr), random(nullptr) {}
+};
 
 // my util functions
 /**
