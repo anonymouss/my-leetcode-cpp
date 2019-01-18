@@ -1,12 +1,10 @@
-# my-leetcode-cpp
+# my-leetcode-solutions
 
-#### my leetcode solutions in C++
-
-##### Golang solutions
+### Golang solutions
 
 [go](go/)
 
-##### C++ solutions
+### C++ solutions
 
 Better to use CMake ( >= 3.12), C++14 (gcc >= 5.0, Clang >= 3.4, MSVC >= 19.0/VS2015)
 
