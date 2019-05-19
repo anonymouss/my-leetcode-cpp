@@ -1,8 +1,10 @@
 # my-leetcode-solutions
 
-### Golang solutions
+### Other lang(s) solutions
 
-[go](go/)
+[golang](go/)
+
+[rust-lang](rust/)
 
 ### C++ solutions
 
