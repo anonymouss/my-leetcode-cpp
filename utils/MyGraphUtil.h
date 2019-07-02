@@ -7,6 +7,7 @@
 #include <utility>
 #include <queue>
 #include <unordered_set>
+#include <functional>
 
 using std::vector;
 using std::unordered_map;
@@ -31,7 +32,7 @@ struct UndirectedGraphNode {
 template <typename T = UndirectedGraphNode>
 struct MyHash {
     std::size_t operator()(const T *t) const {
-        return std::hash<int>(t->label);
+        return std::hash<int>{}(t->label);
     }
 };
 
