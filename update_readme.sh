@@ -3,7 +3,7 @@
 ## Update the completed progress at the bottom of README.md ##
 
 # set manually by default
-TOTAL=875 # actual number of algorithm problems, 875 @ 26th, Oct., 2018
+TOTAL=1268 # actual number of algorithm problems, 1268 @ 18th, Nov., 2019
 SCALE=100
 
 # count files in ./src/
