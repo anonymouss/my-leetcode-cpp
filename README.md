@@ -19,4 +19,6 @@ Better to use CMake ( >= 3.12), C++14 (gcc >= 5.0, Clang >= 3.4, MSVC >= 19.0/VS
 ### XXX
 
 - graph/topological: 206, 210
-- tire tree: 208, 211
+- tire tree: 208, 211, 212
+- dp: 198, 213
+- kmp:
