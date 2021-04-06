@@ -32,3 +32,5 @@ foreach (file ${files})
     target_link_libraries(${exe} pthread)
     message (\ \ \ \ --\ src/${exe}.cpp\ will\ be\ compiled\ to\ bin/${exe})
 endforeach ()
+
+add_subdirectory(target_to_the_offer)
