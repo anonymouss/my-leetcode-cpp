@@ -20,7 +20,7 @@
 class Solution {
 public:
     std::vector<int> exchange(std::vector<int> &nums) {
-        std::size_t l = 0, r = nums.size() - 1;
+        int l = 0, r = nums.size() - 1;
         while (l < r) {
             if (nums[l] % 2 == 1) {
                 ++l;
