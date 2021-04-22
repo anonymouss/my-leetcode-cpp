@@ -205,8 +205,8 @@ private:
         }
 
         callback(node->value);
-        traverse_inorder(callback, node->left);
-        traverse_inorder(callback, node->right);
+        traverse_preorder(callback, node->left);
+        traverse_preorder(callback, node->right);
     }
 
     void traverse_postorder(std::function<void(T)> callback, const std::unique_ptr<Node> &node) const {
@@ -287,8 +287,10 @@ static void test_contains() {
     std::cout << "...contains test ok\n";
 }
 
-static void test_get_elements_preorder(const std::function<void(const std::vector<int> &)> &print) {
-    std::cout << "=== test bst inorder ===\n";
+using Printer = std::function<void(const std::vector<int> &)>;
+
+static void test_get_elements_preorder(const Printer &print) {
+    std::cout << "=== test bst preorder ===\n";
     BinarySearchTree<int> bst;
     bst.insert(5);
     bst.insert(4);
@@ -298,12 +300,12 @@ static void test_get_elements_preorder(const std::function<void(const std::vecto
     std::vector<int> expected = {5, 4, 3, 6};
     std::vector<int> actual = bst.get_elements_preorder();
     print(actual);
-    // assert(actual == expected);
+    assert(actual == expected);
 
     std::cout << "...preorder test ok\n";
 }
 
-static void test_get_elements_inorder(const std::function<void(const std::vector<int> &)> &print) {
+static void test_get_elements_inorder(const Printer &print) {
     std::cout << "=== test bst inorder ===\n";
     BinarySearchTree<int> bst;
     bst.insert(5);
@@ -314,12 +316,12 @@ static void test_get_elements_inorder(const std::function<void(const std::vector
     std::vector<int> expected = {3, 4, 5, 6};
     std::vector<int> actual = bst.get_elements_inorder();
     print(actual);
-    // assert(actual == expected);
+    assert(actual == expected);
 
     std::cout << "...inorder test ok\n";
 }
 
-static void test_get_elements_postorder(const std::function<void(const std::vector<int> &)> &print) {
+static void test_get_elements_postorder(const Printer &print) {
     std::cout << "=== test bst postorder ===\n";
     BinarySearchTree<int> bst;
     bst.insert(5);
@@ -330,7 +332,7 @@ static void test_get_elements_postorder(const std::function<void(const std::vect
     std::vector<int> expected = {3, 4, 6, 5};
     std::vector<int> actual = bst.get_elements_postorder();
     print(actual);
-    // assert(actual == expected);
+    assert(actual == expected);
 
     std::cout << "...postorder test ok\n";
 }
